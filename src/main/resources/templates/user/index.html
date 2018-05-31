@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user index</title>
+</head>
+<body>
+    <th:block th:replace="fragment/header :: header"/>
+        <p th:text="'name:' + ${login.name}"/>
+        <p th:text="'password:' + ${login.passhash}"/>
+    <th:block th:replace="fragment/footer :: footer"/>
+</body>
+</html>

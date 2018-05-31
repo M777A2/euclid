@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<th:block th:replace="fragments/header :: header"/>
+<div >
+    <h1>Project Euclid</h1>
+    <p>This is is a landing page. login is here:</p>
+    <ul>
+        <li>Go to the <a href="/user" th:href="@{/user}">secured pages</a> no don't do that, actually.</li>
+        <li>Try logging in <a href="/login" th:href="@{/user}">Here</a></li>
+    </ul>
+</div>
+<th:block th:replace="fragments/footer :: footer"/>
+</body>
+</html>
