@@ -1,5 +1,9 @@
-package com.minusexpectations.euclid;
+package com.minusexpectations.euclid.models;
 
+/**
+ * A simple POJO for storing the login credentials.
+ * TODO replace this with a more elaborate account class to store in the database.
+ */
 public class LoginForm
 {
     private String name;

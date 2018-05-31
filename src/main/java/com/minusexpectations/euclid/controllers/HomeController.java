@@ -1,6 +1,6 @@
-package com.minusexpectations.euclid.web;
+package com.minusexpectations.euclid.controllers;
 
-import com.minusexpectations.euclid.LoginForm;
+import com.minusexpectations.euclid.models.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

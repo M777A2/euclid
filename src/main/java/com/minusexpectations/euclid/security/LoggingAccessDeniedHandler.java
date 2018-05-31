@@ -1,4 +1,4 @@
-package com.minusexpectations.euclid.web;
+package com.minusexpectations.euclid.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.rmi.AccessException;
 
 @Component
 public class LoggingAccessDeniedHandler implements AccessDeniedHandler
@@ -28,9 +27,9 @@ public class LoggingAccessDeniedHandler implements AccessDeniedHandler
 
         if (auth != null)
         {
-            log.info(auth.getName() + " was trying to access protected resource: " + request.getRequestURI());
+            log.info("{} was trying to access protected resource: {}", auth.getName(), request.getRequestURI());
         }
-        response.sendRedirect(request.getContextPath() + "/access-denied");
 
+        response.sendRedirect(request.getContextPath() + "/access-denied");
     }
 }

@@ -1,6 +1,5 @@
-package com.minusexpectations.euclid.config;
+package com.minusexpectations.euclid.security;
 
-import com.minusexpectations.euclid.web.LoggingAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,11 +7,19 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/**
+ * The security configurations.
+ */
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
+    private final LoggingAccessDeniedHandler accessDeniedHandler;
+
     @Autowired
-    private LoggingAccessDeniedHandler accessDeniedHandler;
+    public SecurityConfig(LoggingAccessDeniedHandler accessDeniedHandler)
+    {
+        this.accessDeniedHandler = accessDeniedHandler;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception
@@ -43,6 +50,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                     .accessDeniedHandler(accessDeniedHandler);
     }
 
+    /**
+     * Configures the authentication.
+     * TODO Replace with database account reference.
+     * (See {@link org.springframework.security.core.userdetails.UserDetailsService}).
+     *
+     * @param auth The authentication manager builder.
+     */
     @Override
     protected void  configure(AuthenticationManagerBuilder auth) throws Exception
     {
