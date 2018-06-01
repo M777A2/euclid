@@ -32,7 +32,7 @@ public class HomeController
     @PostMapping("/login")
     public String loginSubmit(@ModelAttribute LoginForm login)
     {
-        return "user/index";
+        return "result";
     }
 
     @GetMapping("/access-denied")
@@ -41,9 +41,4 @@ public class HomeController
         return "/error/access-denied";
     }
 
-    @GetMapping("/error")
-    public String errorPage()
-    {
-        return "/error/generic-error";
-    }
 }
